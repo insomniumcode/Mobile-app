@@ -3,7 +3,7 @@ import{AngularFireAuth} from '@angular/fire/compat/auth';
 import{getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail} from 'firebase/auth';
 import { User } from '../models/user.model';
 import{ AngularFirestore} from '@angular/fire/compat/firestore';
-import {getFirestore, setDoc, doc, getDoc} from '@angular/fire/firestore';
+import {getFirestore, setDoc, doc, getDoc, addDoc, collection} from '@angular/fire/firestore';
 import { UtilsService } from './utils.service';
 
 @Injectable({
@@ -61,6 +61,11 @@ signUp(user: User) {
   async getDocument(path: string) {
     return (await getDoc(doc(getFirestore(), path))).data();
 
+
+  }
+
+  addDocument(){
+    
 
   }
 

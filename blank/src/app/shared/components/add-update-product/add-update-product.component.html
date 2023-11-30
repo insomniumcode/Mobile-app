@@ -2,6 +2,21 @@
 <ion-content>
     <form [formGroup]="form" class="auth-form" class="ion-padding ion-text-center" (ngSubmit)="submit()"  (keypress.enter)="submit">
 
+         <!-- existe foto -->
+        <ion-avatar *ngIf="form.value.Image">
+            <img [src]="form.value.Image" />
+        </ion-avatar>
+
+        <!-- no existe foto -->
+        <ion-icon  class="image-icon" *ngIf="!form.value.Image" name="image-outline"></ion-icon>
+
+
+        <br>
+        <!-- FOTO -->
+        <ion-button (click)="takeImage()" mode="ios" size="small" shape="round">
+            Seleccionar una imagen
+        </ion-button>
+        
         <app-custom-input 
         autocomplete="price"
         [control]="form.controls.name"
